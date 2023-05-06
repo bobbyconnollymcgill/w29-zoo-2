@@ -21,7 +21,12 @@ export function authorize(permission) {
       return;
     }
 
-    const [email, password] = authHeader.slice(6).split(":");
+    // our client should "base64 encode" this string
+    // and we would decode it here
+    const [email, password] = Buffer.from(authHeader, "base64")
+      .toString("utf-8")
+      .slice(6)
+      .split(":");
 
     const user = db.data.users.find((u) => {
       return u.email === email && u.password === password;

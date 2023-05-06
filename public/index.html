@@ -1,0 +1,62 @@
+<html>
+  <body>
+    <div>
+      <label for="username">Username:</label>
+      <input name="username" id="username" value="bob@bobsworld.com" />
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input name="password" id="password" value="password1234$$" />
+    </div>
+    <button id="btn-get-animals">Get animals</button>
+    <button id="btn-cookie">Get cookie</button>
+    <div id="results"></div>
+  </body>
+  <script>
+    const user = document.getElementById("username");
+    const psw = document.getElementById("password");
+    const btn = document.getElementById("btn-get-animals");
+    const btnCookie = document.getElementById("btn-cookie");
+    const resultsDiv = document.getElementById("results");
+
+    btnCookie.addEventListener("click", () => {
+      fetch("/cookie-example", { method: "POST" });
+    });
+
+    btn.addEventListener("click", () => {
+      console.log(user.value, psw.value);
+
+      const headers = {
+        Authorization: btoa(`Basic ${user.value}:${psw.value}`),
+        // Authorization: `Basic ${user.value}:${psw.value}`,
+      };
+
+      console.log("headers", headers);
+
+      fetch("/api/animals", { method: "GET", headers })
+        .then((res) => {
+          console.log("res", res);
+
+          if (!res.ok) {
+            throw "response was not ok: " + res.statusText;
+          }
+
+          return res.json();
+        })
+        .then((body) => {
+          console.log("body", body, resultsDiv);
+
+          if (!body) return;
+
+          //   resultsDiv.innerHTML = `<p>Name: ${body[0].name}, ${body[0].species}</p>`;
+
+          resultsDiv.innerHTML = body
+            .map((a) => `<p>Name: ${a.name}, ${a.species}</p>`)
+            .join("");
+        })
+        .catch((err) => {
+          console.log("error", err);
+        });
+    });
+  </script>
+</html>
