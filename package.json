@@ -1,0 +1,19 @@
+{
+  "name": "lec7-zoo-debug",
+  "version": "1.0.0",
+  "description": "This is a simple Zoo Management API built with Node.js and Express. It provides CRUD operations for animals, habitats, feeding times, and users, as well as the ability to trigger notifications for feeding times. The purpose of this project is to help students understand the structure and workflow of a basic API.",
+  "scripts": {
+    "dev": "nodemon --inspect app.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "lowdb": "^6.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

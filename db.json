@@ -1,0 +1,62 @@
+{
+  "animals": [
+    {
+      "id": "a1",
+      "name": "Elephant",
+      "species": "African Elephant",
+      "age": 12
+    },
+    {
+      "id": "a2",
+      "name": "Giraffe",
+      "species": "Reticulated Giraffe",
+      "age": 7
+    }
+  ],
+  "habitats": [
+    {
+      "id": "h1",
+      "name": "Savannah",
+      "description": "A large grassland habitat",
+      "animalId": "a1"
+    },
+    {
+      "id": "h2",
+      "name": "Rainforest",
+      "description": "A dense forest habitat with high rainfall",
+      "animalId": "a2"
+    }
+  ],
+  "feedingTimes": [
+    {
+      "id": "f1",
+      "time": "10:00",
+      "animalId": "a1",
+      "status": "scheduled"
+    },
+    {
+      "id": "f2",
+      "time": "14:00",
+      "animalId": "a2",
+      "status": "scheduled"
+    }
+  ],
+  "users": [
+    {
+      "id": "u1",
+      "name": "Alice",
+      "role": "admin",
+      "email": "alice@wonderland.com",
+      "password": "password1234$$",
+      "permissions": ["read", "write", "delete", "notify"]
+    },
+    {
+      "id": "u2",
+      "name": "Bob",
+      "role": "manager",
+      "email": "bob@bobsworld.com",
+      "password": "password1234$$",
+      "permissions": ["read", "write", "notify"]
+    }
+  ]
+}
