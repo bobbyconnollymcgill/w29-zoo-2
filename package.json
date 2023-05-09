@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "This is a simple Zoo Management API built with Node.js and Express. It provides CRUD operations for animals, habitats, feeding times, and users, as well as the ability to trigger notifications for feeding times. The purpose of this project is to help students understand the structure and workflow of a basic API.",
   "scripts": {
+    "start": "node app.mjs",
     "dev": "nodemon --inspect app.mjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
