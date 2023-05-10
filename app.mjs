@@ -14,11 +14,11 @@ const app = express();
 app.use(cookieParser());
 app.use(express.json());
 
+app.use(express.static("public")); // GET + "/" --> index.html
+
 app.get("/", (req, res) => {
   res.send("<html><body>hi</body></html>");
 });
-
-app.use(express.static("public")); // GET + "/" --> index.html
 
 app.use("/api/animals", animalsRouter);
 app.use("/api/habitats", habitatsRouter);
